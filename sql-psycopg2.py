@@ -1,8 +1,5 @@
 import psycopg2
 
-
-
-
 # Connect to the database
 connection = psycopg2.connect(database="chinook")
 
