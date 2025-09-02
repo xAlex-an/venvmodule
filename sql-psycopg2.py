@@ -1,8 +1,12 @@
-import psycopg2
+import os, psycopg2
 
-# Connect to the database
-connection = psycopg2.connect(database="chinook")
-
+conn = psycopg2.connect(  # libpq odczyta PG* z env
+    host=os.getenv("PGHOST"),
+    port=os.getenv("PGPORT"),
+    dbname=os.getenv("PGDATABASE"),
+    user=os.getenv("PGUSER"),
+    password=os.getenv("PGPASSWORD"),
+)
 
 # Create a cursor object of the database
 cursor = connection.cursor()
